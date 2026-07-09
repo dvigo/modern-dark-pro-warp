@@ -20,6 +20,11 @@ Designed for developers who appreciate elegant contrast, clean typography, and l
 
 ### 1. Night Variant (Default)
 Soft, elegant pastel colors optimized for modern dark displays.
+
+<div align="center">
+  <img src="screenshots/modern-dark-pro.png" width="800" alt="Night Variant Screenshot" />
+</div>
+
 - **Background**: `#0f0f0f`
 - **Foreground/Text**: `#e0e0e0`
 - **Accent**: `#64b5f6` (Light Blue)
@@ -27,6 +32,11 @@ Soft, elegant pastel colors optimized for modern dark displays.
 
 ### 2. Monokai Variant
 The classic high-contrast Monokai theme colors adapted for terminal use.
+
+<div align="center">
+  <img src="screenshots/modern-dark-pro-monokai.png" width="800" alt="Monokai Variant Screenshot" />
+</div>
+
 - **Background**: `#272822`
 - **Foreground/Text**: `#f8f8f2`
 - **Accent**: `#ae81ff` (Purple)
@@ -34,6 +44,11 @@ The classic high-contrast Monokai theme colors adapted for terminal use.
 
 ### 3. Dracula Variant
 A vibrant, modern take on the iconic Dracula color palette.
+
+<div align="center">
+  <img src="screenshots/modern-dark-pro-dracula.png" width="800" alt="Dracula Variant Screenshot" />
+</div>
+
 - **Background**: `#282a36`
 - **Foreground/Text**: `#f8f8f2`
 - **Accent**: `#bd93f9` (Dracula Purple)
