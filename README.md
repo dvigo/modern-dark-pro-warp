@@ -8,11 +8,21 @@ Designed for developers who appreciate elegant contrast, clean typography, and l
 
 ## ✨ Features
 
-- **🚀 Triple Variant Support**: Choose between:
+- **🚀 Multiple Variant Support**: Choose between:
   - **Night** (subtle pastel tones, OLED-ready soft black background)
+  - **Night Glass** (features an elegant dark mesh background image)
   - **Monokai** (classic vibrant Monokai accents, warm dark background)
   - **Dracula** (vibrant purple-centered classic dark aesthetic)
 - **🎨 High-Contrast & Accessible**: Tuned ANSI color mappings for excellent syntax highlighting legibility in terminal logs, CLI utilities, and prompts.
+
+---
+
+## 🎥 Demo
+
+<div align="center">
+  <!-- TODO: Add a GIF or video demonstrating the terminal in action here -->
+  <p><i>Demo Video Placeholder</i></p>
+</div>
 
 ---
 
@@ -56,7 +66,28 @@ A vibrant, modern take on the iconic Dracula color palette.
 
 ---
 
+## 🧪 ANSI Color Test
+
+Run a color test script (e.g. `msgcat --color=test`) to verify the contrast and legibility of the colors.
+
+<div align="center">
+  <!-- TODO: Add a screenshot of an ANSI color test here -->
+  <p><i>ANSI Color Test Screenshot Placeholder</i></p>
+</div>
+
+---
+
 ## 📦 Installation
+
+### Option 1: Homebrew (macOS)
+You can easily install the themes using Homebrew:
+```bash
+brew tap dvigo/modern-dark-pro-warp
+brew install modern-dark-pro-warp
+```
+*Note: Homebrew will place the themes in the Homebrew prefix. To finish installation to Warp's local folder, follow the caveats printed after installation.*
+
+### Option 2: Manual Installation
 
 ### Step 1: Clone the repository
 Clone this project into a local folder:
@@ -69,6 +100,11 @@ Run the provided installer script, which copies the theme configuration files to
 ```bash
 cd ~/dev/modern-dark-pro-warp
 ./install.sh
+```
+
+To **uninstall**, you can run:
+```bash
+./install.sh --uninstall
 ```
 
 ---

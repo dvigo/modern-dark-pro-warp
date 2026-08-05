@@ -1,0 +1,27 @@
+name: Modern Dark Pro - Night Glass
+accent: '#64b5f6'
+background: '#0f0f0f'
+foreground: '#e0e0e0'
+details: darker
+background_image:
+  path: "~/.warp/themes/backgrounds/dark-mesh.png"
+  opacity: 100
+terminal_colors:
+  normal:
+    black: '#0f0f0f'
+    red: '#e57373'
+    green: '#81c784'
+    yellow: '#ffb74d'
+    blue: '#64b5f6'
+    magenta: '#ba68c8'
+    cyan: '#4dd0e1'
+    white: '#e0e0e0'
+  bright:
+    black: '#666666'
+    red: '#ef9a9a'
+    green: '#a5d6a7'
+    yellow: '#ffe082'
+    blue: '#90caf9'
+    magenta: '#ce93d8'
+    cyan: '#80deea'
+    white: '#ffffff'
