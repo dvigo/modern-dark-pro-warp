@@ -82,7 +82,7 @@ Run a color test script (e.g. `msgcat --color=test`) to verify the contrast and 
 ### Option 1: Homebrew (macOS)
 You can easily install the themes using Homebrew:
 ```bash
-brew tap dvigo/modern-dark-pro-warp
+brew tap dvigo/modern-dark-pro-warp https://github.com/dvigo/modern-dark-pro-warp
 brew install modern-dark-pro-warp
 ```
 *Note: Homebrew will place the themes in the Homebrew prefix. To finish installation to Warp's local folder, follow the caveats printed after installation.*
