@@ -2,6 +2,11 @@ name: Tag Release
 
 on:
   workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for release (e.g. v1.1.0)'
+        required: false
+        default: 'v1.1.0'
   push:
     tags:
       - 'v*'
@@ -19,7 +24,7 @@ jobs:
 
       - name: Create release archives
         run: |
-          VERSION="${GITHUB_REF_NAME}"
+          VERSION="${{ inputs.tag_name || github.ref_name }}"
           ARCHIVE_NAME="modern-dark-pro-warp-${VERSION}"
           
           # Create temporary bundle folder
@@ -29,6 +34,7 @@ jobs:
           tar -czvf "${ARCHIVE_NAME}.tar.gz" "$ARCHIVE_NAME"
           zip -r "${ARCHIVE_NAME}.zip" "$ARCHIVE_NAME"
           
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "SHA256_TARBALL=$(sha256sum "${ARCHIVE_NAME}.tar.gz" | awk '{print $1}')" >> $GITHUB_ENV
           echo "ARCHIVE_TARBALL=${ARCHIVE_NAME}.tar.gz" >> $GITHUB_ENV
           echo "ARCHIVE_ZIP=${ARCHIVE_NAME}.zip" >> $GITHUB_ENV
@@ -36,11 +42,12 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ env.VERSION }}
           files: |
             ${{ env.ARCHIVE_TARBALL }}
             ${{ env.ARCHIVE_ZIP }}
           body: |
-            ## 🎨 Modern Dark Pro Warp Themes Release ${{ github.ref_name }}
+            ## 🎨 Modern Dark Pro Warp Themes Release ${{ env.VERSION }}
 
             ### SHA256 Checksum for Homebrew
             ```
