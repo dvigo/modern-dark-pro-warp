@@ -1,0 +1,43 @@
+name: CI & Quality Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-installer:
+    name: Test Installer (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate shell script syntax
+        run: bash -n install.sh
+
+      - name: Run installer
+        run: ./install.sh
+
+      - name: Verify installed theme files
+        run: |
+          THEMES_DIR="$HOME/.warp/themes"
+          test -f "$THEMES_DIR/modern-dark-pro-night.yaml"
+          test -f "$THEMES_DIR/modern-dark-pro-night-glass.yaml"
+          test -f "$THEMES_DIR/modern-dark-pro-monokai.yaml"
+          test -f "$THEMES_DIR/modern-dark-pro-dracula.yaml"
+          test -f "$THEMES_DIR/backgrounds/dark-mesh.png"
+          echo "✓ All theme files verified in $THEMES_DIR"
+
+      - name: Run uninstaller
+        run: ./install.sh --uninstall
+
+      - name: Verify uninstallation
+        run: |
+          THEMES_DIR="$HOME/.warp/themes"
+          ! test -f "$THEMES_DIR/modern-dark-pro-night.yaml"
+          echo "✓ Theme files successfully removed"
