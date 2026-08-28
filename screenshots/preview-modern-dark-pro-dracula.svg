@@ -1,44 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
-  <rect width="800" height="240" rx="12" fill=" " stroke="#333333" stroke-width="2"/>
-  <text x="24" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill=" ">Modern Dark Pro - Dracula</text>
-  <circle cx="760" cy="32" r="8" fill=" "/>
-  <text x="744" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill=" " text-anchor="end">ACCENT</text>
+  <rect width="800" height="240" rx="12" fill="#282a36" stroke="#333333" stroke-width="2"/>
+  <text x="24" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#f8f8f2">Modern Dark Pro - Dracula</text>
+  <circle cx="760" cy="32" r="8" fill="#bd93f9"/>
+  <text x="744" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#bd93f9" text-anchor="end">ACCENT</text>
   <g transform="translate(24, 60)">
-    <text x="0" y="16" font-family="monospace" font-size="12" fill=" ">Normal:</text>
-    <rect x="70" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="105" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">black</text>
-    <rect x="155" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="190" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">red</text>
-    <rect x="240" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="275" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">green</text>
-    <rect x="325" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="360" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">yellow</text>
-    <rect x="410" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="445" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">blue</text>
-    <rect x="495" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="530" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">magenta</text>
-    <rect x="580" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="615" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">cyan</text>
-    <rect x="665" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="700" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle">white</text>
+    <text x="0" y="16" font-family="monospace" font-size="12" fill="#f8f8f2">Normal:</text>
+    <rect x="70" y="2" width="70" height="24" rx="4" fill="#21222c"/>
+    <text x="105" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">black</text>
+    <rect x="155" y="2" width="70" height="24" rx="4" fill="#ff5555"/>
+    <text x="190" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">red</text>
+    <rect x="240" y="2" width="70" height="24" rx="4" fill="#50fa7b"/>
+    <text x="275" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">green</text>
+    <rect x="325" y="2" width="70" height="24" rx="4" fill="#f1fa8c"/>
+    <text x="360" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">yellow</text>
+    <rect x="410" y="2" width="70" height="24" rx="4" fill="#bd93f9"/>
+    <text x="445" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">blue</text>
+    <rect x="495" y="2" width="70" height="24" rx="4" fill="#ff79c6"/>
+    <text x="530" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">magenta</text>
+    <rect x="580" y="2" width="70" height="24" rx="4" fill="#8be9fd"/>
+    <text x="615" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">cyan</text>
+    <rect x="665" y="2" width="70" height="24" rx="4" fill="#f8f8f2"/>
+    <text x="700" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">white</text>
   </g>
   <g transform="translate(24, 130)">
-    <text x="0" y="16" font-family="monospace" font-size="12" fill=" ">Bright:</text>
-    <rect x="70" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="105" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="155" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="190" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="240" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="275" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="325" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="360" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="410" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="445" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="495" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="530" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="580" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="615" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
-    <rect x="665" y="2" width="70" height="24" rx="4" fill=" "/>
-    <text x="700" y="42" font-family="monospace" font-size="10" fill=" " text-anchor="middle"> </text>
+    <text x="0" y="16" font-family="monospace" font-size="12" fill="#f8f8f2">Bright:</text>
+    <rect x="70" y="2" width="70" height="24" rx="4" fill="#6272a4"/>
+    <text x="105" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#6272a4</text>
+    <rect x="155" y="2" width="70" height="24" rx="4" fill="#ff6e6e"/>
+    <text x="190" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#ff6e6e</text>
+    <rect x="240" y="2" width="70" height="24" rx="4" fill="#69ff94"/>
+    <text x="275" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#69ff94</text>
+    <rect x="325" y="2" width="70" height="24" rx="4" fill="#ffffa5"/>
+    <text x="360" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#ffffa5</text>
+    <rect x="410" y="2" width="70" height="24" rx="4" fill="#d6acff"/>
+    <text x="445" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#d6acff</text>
+    <rect x="495" y="2" width="70" height="24" rx="4" fill="#ff92df"/>
+    <text x="530" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#ff92df</text>
+    <rect x="580" y="2" width="70" height="24" rx="4" fill="#a4ffff"/>
+    <text x="615" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#a4ffff</text>
+    <rect x="665" y="2" width="70" height="24" rx="4" fill="#ffffff"/>
+    <text x="700" y="42" font-family="monospace" font-size="10" fill="#f8f8f2" text-anchor="middle">#ffffff</text>
   </g>
 </svg>

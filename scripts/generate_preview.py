@@ -16,26 +16,28 @@ def parse_simple_yaml(filepath):
     
     with open(filepath, "r", encoding="utf-8") as f:
         for line in f:
-            line = line.split("#")[0].rstrip()
-            if not line:
+            raw_line = line
+            line_str = line.strip()
+            if not line_str or line_str.startswith("#"):
                 continue
             
-            # Key-value at root level
-            m_root = re.match(r"^([a-zA-Z_]+):\s*['\"]?([^'\"]+)['\"]?", line)
-            if m_root and not line.startswith(" "):
-                data[m_root.group(1)] = m_root.group(2)
+            # Root level properties (e.g. name: Modern Dark Pro - Night, accent: '#64b5f6')
+            m_root = re.match(r"^([a-zA-Z_]+):\s*['\"]?([^\'\"]+)['\"]?$", line_str)
+            if m_root and not raw_line.startswith(" "):
+                data[m_root.group(1)] = m_root.group(2).strip()
                 continue
                 
-            if "normal:" in line:
+            if "normal:" in line_str:
                 current_section = "normal"
                 continue
-            elif "bright:" in line:
+            elif "bright:" in line_str:
                 current_section = "bright"
                 continue
                 
-            m_color = re.match(r"^\s+([a-zA-Z]+):\s*['\"]?([^'\"]+)['\"]?", line)
+            # Color properties inside normal / bright sections
+            m_color = re.match(r"^([a-zA-Z]+):\s*['\"]?([^\'\"]+)['\"]?$", line_str)
             if m_color and current_section:
-                data["terminal_colors"][current_section][m_color.group(1)] = m_color.group(2)
+                data["terminal_colors"][current_section][m_color.group(1)] = m_color.group(2).strip()
                 
     return data
 
