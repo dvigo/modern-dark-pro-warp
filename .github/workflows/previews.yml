@@ -1,0 +1,55 @@
+name: Generate & Sync Previews
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'themes/*.yaml'
+      - 'scripts/generate_preview.py'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'themes/*.yaml'
+      - 'scripts/generate_preview.py'
+
+jobs:
+  update-previews:
+    name: Generate Theme SVG Previews
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate previews
+        run: python3 scripts/generate_preview.py
+
+      - name: Check for SVG changes in PR
+        if: github.event_name == 'pull_request'
+        run: |
+          if ! git diff --quiet screenshots/; then
+            echo "::error::SVG previews in screenshots/ are out of date. Please run 'python3 scripts/generate_preview.py' locally."
+            git diff screenshots/
+            exit 1
+          fi
+          echo "✓ SVG previews are up to date."
+
+      - name: Commit updated SVGs on push
+        if: github.event_name == 'push'
+        run: |
+          if ! git diff --quiet screenshots/; then
+            git config --local user.name "github-actions[bot]"
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git add screenshots/*.svg
+            git commit -m "chore(previews): auto-update theme SVG previews [skip ci]"
+            git push
+          else
+            echo "No changes to previews."
+          fi
