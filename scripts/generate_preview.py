@@ -90,17 +90,76 @@ def generate_svg(theme_data, output_path):
         f.write("\n".join(svg))
     print(f"✓ Generated SVG preview: {output_path}")
 
+def update_readme(themes_info, repo_root):
+    readme_path = repo_root / "README.md"
+    if not readme_path.exists():
+        return
+        
+    with open(readme_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        
+    start_marker = "<!-- START THEMES -->"
+    end_marker = "<!-- END THEMES -->"
+    
+    if start_marker not in content or end_marker not in content:
+        return
+        
+    lines = []
+    # Sort themes predictably
+    sorted_themes = sorted(themes_info, key=lambda t: t['name'])
+    for idx, theme in enumerate(sorted_themes, 1):
+        name = theme.get('name', 'Theme')
+        stem = theme['stem']
+        bg = theme.get('background', '#0f0f0f')
+        fg = theme.get('foreground', '#e0e0e0')
+        accent = theme.get('accent', '#64b5f6')
+        
+        # Check PNG screenshot availability
+        png_path = f"screenshots/{stem}.png"
+        if not (repo_root / png_path).exists():
+            if stem == "modern-dark-pro-night":
+                png_path = "screenshots/modern-dark-pro.png"
+            else:
+                png_path = None
+                
+        lines.append(f"### {idx}. {name}")
+        lines.append(f"- **Background**: `{bg}` | **Foreground**: `{fg}` | **Accent**: `{accent}`\n")
+        lines.append('<div align="center">')
+        if png_path and (repo_root / png_path).exists():
+            lines.append(f'  <img src="{png_path}" width="800" alt="{name} Screenshot" />')
+            lines.append('  <br/><br/>')
+        lines.append(f'  <img src="screenshots/preview-{stem}.svg" width="800" alt="{name} Palette Swatches" />')
+        lines.append('</div>\n')
+        
+    new_theme_block = "\n\n" + "\n".join(lines)
+    
+    before = content.split(start_marker)[0]
+    after = content.split(end_marker)[1]
+    
+    updated_content = before + start_marker + new_theme_block + end_marker + after
+    
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write(updated_content)
+    print(f"✓ Updated README.md theme section with {len(themes_info)} themes.")
+
 def main():
     repo_root = Path(__file__).resolve().parent.parent
     themes_dir = repo_root / "themes"
     output_dir = repo_root / "screenshots"
     output_dir.mkdir(exist_ok=True)
     
+    themes_info = []
     for yaml_file in themes_dir.glob("*.yaml"):
         theme_data = parse_simple_yaml(yaml_file)
+        theme_data["stem"] = yaml_file.stem
+        theme_data["filename"] = yaml_file.name
+        themes_info.append(theme_data)
+        
         svg_filename = f"preview-{yaml_file.stem}.svg"
         output_path = output_dir / svg_filename
         generate_svg(theme_data, output_path)
+
+    update_readme(themes_info, repo_root)
 
 if __name__ == "__main__":
     main()

@@ -23,41 +23,42 @@ Designed for developers who appreciate elegant contrast, clean typography, and l
 
 ## 🎨 Color Palettes & Variants
 
-### 1. Night Variant (Default)
-Soft, elegant pastel colors optimized for modern dark displays.
+<!-- START THEMES -->
+
+### 1. Modern Dark Pro - Dracula
+- **Background**: `#282a36` | **Foreground**: `#f8f8f2` | **Accent**: `#bd93f9`
 
 <div align="center">
-  <img src="screenshots/modern-dark-pro.png" width="800" alt="Night Variant Screenshot" />
+  <img src="screenshots/modern-dark-pro-dracula.png" width="800" alt="Modern Dark Pro - Dracula Screenshot" />
+  <br/><br/>
+  <img src="screenshots/preview-modern-dark-pro-dracula.svg" width="800" alt="Modern Dark Pro - Dracula Palette Swatches" />
 </div>
 
-- **Background**: `#0f0f0f`
-- **Foreground/Text**: `#e0e0e0`
-- **Accent**: `#64b5f6` (Light Blue)
-- **ANSI Palette**: Tuned with soft red (`#e57373`), green (`#81c784`), orange/yellow (`#ffb74d`), purple (`#ba68c8`), and cyan (`#4dd0e1`).
-
-### 2. Monokai Variant
-The classic high-contrast Monokai theme colors adapted for terminal use.
+### 2. Modern Dark Pro - Monokai
+- **Background**: `#272822` | **Foreground**: `#f8f8f2` | **Accent**: `#ae81ff`
 
 <div align="center">
-  <img src="screenshots/modern-dark-pro-monokai.png" width="800" alt="Monokai Variant Screenshot" />
+  <img src="screenshots/modern-dark-pro-monokai.png" width="800" alt="Modern Dark Pro - Monokai Screenshot" />
+  <br/><br/>
+  <img src="screenshots/preview-modern-dark-pro-monokai.svg" width="800" alt="Modern Dark Pro - Monokai Palette Swatches" />
 </div>
 
-- **Background**: `#272822`
-- **Foreground/Text**: `#f8f8f2`
-- **Accent**: `#ae81ff` (Purple)
-- **ANSI Palette**: Featuring classic Monokai green (`#a6e22e`), blue (`#66d9ef`), yellow (`#e6db74`), and magenta (`#f92672`).
-
-### 3. Dracula Variant
-A vibrant, modern take on the iconic Dracula color palette.
+### 3. Modern Dark Pro - Night
+- **Background**: `#0f0f0f` | **Foreground**: `#e0e0e0` | **Accent**: `#64b5f6`
 
 <div align="center">
-  <img src="screenshots/modern-dark-pro-dracula.png" width="800" alt="Dracula Variant Screenshot" />
+  <img src="screenshots/modern-dark-pro.png" width="800" alt="Modern Dark Pro - Night Screenshot" />
+  <br/><br/>
+  <img src="screenshots/preview-modern-dark-pro-night.svg" width="800" alt="Modern Dark Pro - Night Palette Swatches" />
 </div>
 
-- **Background**: `#282a36`
-- **Foreground/Text**: `#f8f8f2`
-- **Accent**: `#bd93f9` (Dracula Purple)
-- **ANSI Palette**: Dracula pink (`#ff79c6`), cyan (`#8be9fd`), yellow (`#f1fa8c`), green (`#50fa7b`), and red (`#ff5555`).
+### 4. Modern Dark Pro - Night Glass
+- **Background**: `#0f0f0f` | **Foreground**: `#e0e0e0` | **Accent**: `#64b5f6`
+
+<div align="center">
+  <img src="screenshots/preview-modern-dark-pro-night-glass.svg" width="800" alt="Modern Dark Pro - Night Glass Palette Swatches" />
+</div>
+<!-- END THEMES -->
 
 ---
 

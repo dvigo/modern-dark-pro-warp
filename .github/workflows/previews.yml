@@ -42,15 +42,15 @@ jobs:
           fi
           echo "✓ SVG previews are up to date."
 
-      - name: Commit updated SVGs on push
+      - name: Commit updated SVGs and README on push
         if: github.event_name == 'push'
         run: |
-          if ! git diff --quiet screenshots/; then
+          if ! git diff --quiet screenshots/ README.md; then
             git config --local user.name "github-actions[bot]"
             git config --local user.email "github-actions[bot]@users.noreply.github.com"
-            git add screenshots/*.svg
-            git commit -m "chore(previews): auto-update theme SVG previews [skip ci]"
+            git add screenshots/*.svg README.md
+            git commit -m "chore(previews): auto-update theme SVG previews and README [skip ci]"
             git push
           else
-            echo "No changes to previews."
+            echo "No changes to previews or README."
           fi
