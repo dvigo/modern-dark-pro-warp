@@ -7,8 +7,25 @@
 
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd)"
+
+# Support execution via curl/pipe when SCRIPT_DIR does not contain themes/
+if [ ! -d "${SCRIPT_DIR}/themes" ]; then
+    echo "📥 Downloading Modern Dark Pro themes..."
+    TEMP_DIR=$(mktemp -d)
+    git clone --depth 1 https://github.com/dvigo/modern-dark-pro-warp.git "$TEMP_DIR" --quiet
+    SCRIPT_DIR="$TEMP_DIR"
+    trap 'rm -rf "$TEMP_DIR"' EXIT
+fi
+
+# Detect OS and set target Warp themes directory
+OS_TYPE="$(uname -s)"
 WARP_THEMES_DIR="$HOME/.warp/themes"
+
+if [ "$OS_TYPE" = "Linux" ] && [ -d "$HOME/.local/share/warp-terminal" ]; then
+    WARP_THEMES_DIR="$HOME/.local/share/warp-terminal/themes"
+fi
+
 WARP_BG_DIR="$WARP_THEMES_DIR/backgrounds"
 
 if [ "$1" = "--uninstall" ]; then
