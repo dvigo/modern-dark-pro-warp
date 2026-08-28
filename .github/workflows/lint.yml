@@ -1,0 +1,62 @@
+name: Lint & Validate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-yaml:
+    name: Lint Theme YAMLs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate Warp Theme Schema
+        run: |
+          python3 -c "
+          import sys, glob, re
+          
+          required_keys = ['name', 'accent', 'background', 'foreground', 'terminal_colors']
+          normal_colors = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
+          
+          files = glob.glob('themes/*.yaml')
+          if not files:
+              print('No theme YAML files found!')
+              sys.exit(1)
+              
+          for fpath in files:
+              with open(fpath, 'r', encoding='utf-8') as f:
+                  content = f.read()
+              
+              for rk in required_keys:
+                  if rk + ':' not in content:
+                      print(f'Error: {fpath} missing required key: {rk}')
+                      sys.exit(1)
+                      
+              for nc in normal_colors:
+                  if nc + ':' not in content:
+                      print(f'Error: {fpath} missing color definition for: {nc}')
+                      sys.exit(1)
+                      
+              print(f'✓ {fpath} passed schema validation')
+          "
+
+  lint-shell:
+    name: Lint Shell Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scans: install.sh
