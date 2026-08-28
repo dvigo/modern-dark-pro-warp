@@ -1,5 +1,9 @@
 # 🎨 Modern Dark Pro - Warp Terminal Theme
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Warp Compatible](https://img.shields.io/badge/Warp-Compatible-blueviolet)](https://www.warp.dev/)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](Formula/modern-dark-pro-warp.rb)
+
 A premium, modern, and dark-mode-optimized Warp Terminal theme inspired by the [Modern Dark Pro](https://github.com/dvigo/modern-dark-pro) color palettes. 
 
 Designed for developers who appreciate elegant contrast, clean typography, and low eye strain during long coding sessions.
@@ -14,15 +18,6 @@ Designed for developers who appreciate elegant contrast, clean typography, and l
   - **Monokai** (classic vibrant Monokai accents, warm dark background)
   - **Dracula** (vibrant purple-centered classic dark aesthetic)
 - **🎨 High-Contrast & Accessible**: Tuned ANSI color mappings for excellent syntax highlighting legibility in terminal logs, CLI utilities, and prompts.
-
----
-
-## 🎥 Demo
-
-<div align="center">
-  <!-- TODO: Add a GIF or video demonstrating the terminal in action here -->
-  <p><i>Demo Video Placeholder</i></p>
-</div>
 
 ---
 
@@ -66,20 +61,15 @@ A vibrant, modern take on the iconic Dracula color palette.
 
 ---
 
-## 🧪 ANSI Color Test
-
-Run a color test script (e.g. `msgcat --color=test`) to verify the contrast and legibility of the colors.
-
-<div align="center">
-  <!-- TODO: Add a screenshot of an ANSI color test here -->
-  <p><i>ANSI Color Test Screenshot Placeholder</i></p>
-</div>
-
----
-
 ## 📦 Installation
 
-### Option 1: Homebrew (macOS)
+### Option 1: Quick Install (Recommended)
+Run the automated installer script directly in your terminal:
+```bash
+curl -fsSL https://raw.githubusercontent.com/dvigo/modern-dark-pro-warp/main/install.sh | bash
+```
+
+### Option 2: Homebrew (macOS)
 You can easily install the themes using Homebrew:
 ```bash
 brew tap dvigo/modern-dark-pro-warp https://github.com/dvigo/modern-dark-pro-warp
@@ -87,15 +77,15 @@ brew install modern-dark-pro-warp
 ```
 *Note: Homebrew will place the themes in the Homebrew prefix. To finish installation to Warp's local folder, follow the caveats printed after installation.*
 
-### Option 2: Manual Installation
+### Option 3: Manual Installation
 
-### Step 1: Clone the repository
+#### Step 1: Clone the repository
 Clone this project into a local folder:
 ```bash
 git clone https://github.com/dvigo/modern-dark-pro-warp.git ~/dev/modern-dark-pro-warp
 ```
 
-### Step 2: Run the installer
+#### Step 2: Run the installer
 Run the provided installer script, which copies the theme configuration files to Warp's local custom themes folder (`~/.warp/themes/`):
 ```bash
 cd ~/dev/modern-dark-pro-warp
