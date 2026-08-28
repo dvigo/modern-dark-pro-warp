@@ -1,0 +1,54 @@
+name: Tag Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-release:
+    name: Build & Publish GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create release archives
+        run: |
+          VERSION="${GITHUB_REF_NAME}"
+          ARCHIVE_NAME="modern-dark-pro-warp-${VERSION}"
+          
+          # Create temporary bundle folder
+          mkdir -p "$ARCHIVE_NAME"
+          cp -r themes backgrounds install.sh README.md LICENSE "$ARCHIVE_NAME/"
+          
+          tar -czvf "${ARCHIVE_NAME}.tar.gz" "$ARCHIVE_NAME"
+          zip -r "${ARCHIVE_NAME}.zip" "$ARCHIVE_NAME"
+          
+          echo "SHA256_TARBALL=$(sha256sum "${ARCHIVE_NAME}.tar.gz" | awk '{print $1}')" >> $GITHUB_ENV
+          echo "ARCHIVE_TARBALL=${ARCHIVE_NAME}.tar.gz" >> $GITHUB_ENV
+          echo "ARCHIVE_ZIP=${ARCHIVE_NAME}.zip" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ env.ARCHIVE_TARBALL }}
+            ${{ env.ARCHIVE_ZIP }}
+          body: |
+            ## 🎨 Modern Dark Pro Warp Themes Release ${{ github.ref_name }}
+
+            ### SHA256 Checksum for Homebrew
+            ```
+            ${{ env.SHA256_TARBALL }}
+            ```
+
+            ### Installation via Quick Installer:
+            ```bash
+            curl -fsSL https://raw.githubusercontent.com/dvigo/modern-dark-pro-warp/main/install.sh | bash
+            ```
+          draft: false
+          prerelease: false
