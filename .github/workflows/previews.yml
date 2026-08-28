@@ -1,6 +1,7 @@
 name: Generate & Sync Previews
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
